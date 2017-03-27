@@ -1,16 +1,14 @@
 function init() {
-	document.addEventListener("deviceready",onDeviceReady, false);
-}
-
-function onDeviceReady() {
-	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+	document.addEventListener("deviceready",onSuccess(acceleration), false);
 }
 
 function onSuccess(acceleration) {
     alert('Acceleration X: ' + acceleration.x + '\n' +
           'Acceleration Y: ' + acceleration.y + '\n' +
           'Acceleration Z: ' + acceleration.z + '\n' +
-          'Timestamp: '      + acceleration.timestamp + '\n');
+          'Timestamp: '      + acceleration.timestamp + '\n')
+		  
+	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }
 
 function onError() {
