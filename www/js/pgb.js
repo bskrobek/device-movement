@@ -1,5 +1,9 @@
 function init() {
-	document.addEventListener("deviceready",onSuccess(acceleration), false);
+	document.addEventListener("deviceready", onDeviceReady(), false);
+}
+
+function onDeviceReady() {
+	navigator.notification.beep(1);
 }
 
 function onSuccess(acceleration) {
@@ -7,7 +11,9 @@ function onSuccess(acceleration) {
           'Acceleration Y: ' + acceleration.y + '\n' +
           'Acceleration Z: ' + acceleration.z + '\n' +
           'Timestamp: '      + acceleration.timestamp + '\n')
-		  
+}
+
+function positionGet() {
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }
 
